@@ -1,0 +1,63 @@
+
+<!DOCTYPE html><html class=''>
+<head>
+<script>var shoe_id = "{{ shoe_id|safe }}";
+        var measured_size = "{{size|safe}}";
+</script>
+<title>{{shoe_id|safe}}</title>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="http://codepen.io/bobefresh/pen/ryoggY" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css'>
+<style class="cp-pen-styles">
+#app {
+  width:100%;
+  height:100%;
+}
+
+#olympic-photo {
+  -webkit-transform: scale(0.6);
+  margin-top:0px;
+  margin:0 auto;
+}
+
+</style></head><body>
+<div class="container">
+  <h3 class="center-align"> Welcome to the 2024 Olympic Games Footwear Station</h3>
+  <br>
+  <h5 class="center-align">Please pick up a shoe</h5>
+  </div>
+  <img id="olympic-photo" class="materialboxed responsive-img valign-center" src="https://upload.wikimedia.org/wikipedia/en/thumb/e/ef/LA_2024_Olympic_Bid_Logo.svg/498px-LA_2024_Olympic_Bid_Logo.svg.png">
+<script>
+var api_root = "http://lahack2017.azurewebsites.net/tables/Todoitem?ZUMO-API-VERSION=2.0.0";
+console.log("First shoe id: " + shoe_id.charAt(2));
+
+$(document).ready(function(){
+      setInterval(function() {
+      $.ajax({
+          type: "GET",
+          url: "http://127.0.0.1:5000/",
+          success: function(result) {
+            var res = $(result).filter('title').text();
+              var currRes = $("title").text();
+              console.log("curr: " + currRes + " newRes: " + res);
+              if(res != currRes)
+              {
+                console.log("Changing view");
+                document.open();
+                document.write(result);
+                document.close();
+              }
+              else
+              {
+                console.log("Same input, no change");
+              }
+          },
+          error: function() {
+            console.log("Error in AJAX refresh");
+          }
+      });
+  }, 5000);
+});
+
+</script>
+</body></html>

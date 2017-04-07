@@ -1,0 +1,289 @@
+
+<!DOCTYPE html><html class=''>
+<head>
+<script>var shoe_id = "{{ shoe_id|safe }}";</script>
+<title>{{shoe_id|safe}}</title>
+<script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="http://codepen.io/bobefresh/pen/ryoggY" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css'>
+<style class="cp-pen-styles">p {
+  text-indent: 50px;
+}
+
+.slider .slides {
+  background-color: transparent;
+}
+
+#review-slide ul {
+  height: 160px;
+  text-shadow: 2px 2px 1px #000000;
+}
+#review-slide ul div {
+  border-radius: 3px;
+}
+
+#shoe-photo {
+  mix-blend-mode: normal;
+  border-radius: 3px;
+}
+
+#avail-table {
+  background: transparent;
+  border-radius: 3px;
+}
+#avail-table table {
+  margin-top: 17px;
+}
+</style></head><body>
+<div id="app" class="white darken-2 black-text">
+  
+  <div id="button-row" class="row">
+    <!-- Measure Button -->
+    <div id="user-size" class="col s3">No measurement yet...</div>
+    <div class="col s3">
+      <a href="#modal1" class="waves-effect waves-light btn-large valign">Measure</a>
+    </div>
+    <div class="col s3">
+      <a id="buy-btn" class="waves-effect waves-light btn-large valign">BUY</a>
+    </div>
+    <div class="col s3">
+  </div>
+</div>
+
+<!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Attention!</h4>
+      <p>Please remove your shoe and place your foot in the measuring box</p>
+    </div>
+    <div class="modal-footer">
+      <a id="measure-btn-disable" class="waves-effect waves-light btn-large valign modal-close">Measure</a>
+    </div>
+  </div>
+
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <h4>Thanks for your purchase!</h4>
+    </div>
+    <div class="modal-footer">
+      <a class="waves-effect waves-light btn-large valign modal-close">Close</a>
+    </div>
+  </div>
+
+  <div id="title-row" class="row">
+    <div class="col s6 caption center-align">
+      <h5 id="shoe-name">Loading shoe info...</h5>
+      <hr>
+    </div>
+    <div class="col s6  caption center-align">
+      <h5 id="shoe-details">(Shoe Name) in Action</h5>
+      <hr>
+    </div>
+  </div>
+  <div id="top-row" class="row">
+    <div class="col s3" id="shoe-photos">
+      <img id="shoe-photo" class="materialboxed responsive-img z-depth-5" src="">
+    </div>
+    <div class="col s3" id="shoe-info">
+      <p>This is where the shoe info would go. This is where a lengthy description of the concept of the shoe can be presented to show the value to the customer.</p>
+    </div>
+    <div class="col s6">
+      <div id="action-slider" class="slider z-depth-5">
+        <ul id="action-slides" class="slides">
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="row valign">
+    <div class="col s6">
+      <div class="caption center-align">
+        <h5>Reviews</h5>
+      </div>
+      <div id="review-slide" class="slider">
+        <ul class="slides">
+          <li>
+            <div class="card grey darken-1 valign center-block z-depth-5">
+              <div class="card-content white-text">
+                <span class="card-title">
+                  Michael J. from Chicago, IL
+                <div class="valign right-block">
+                <i class="small material-icons">grade</i>
+                  <i class="small material-icons">grade</i>
+                  <i class="small material-icons">grade</i>
+                  <i class="small material-icons">grade</i>
+            </div>
+              </span>
+                <p>What can i say baout these shoes except for the fact that they are the sole reason i am able to play basketball, if you buy these shoes you WILL be able to dunk, you feel me?</p>
+              </div>
+              <div class="card-action">
+                <a href="#"><i class="small material-icons">thumb_up</i></a>
+                <a href="#"><i class="small material-icons">thumb_down</i></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="card grey darken-1 valign center-block  z-depth-5">
+              <div class="card-content white-text">
+                <span class="card-title">
+                  Kobe B. from Los Angeles, CA
+                <div class="valign right-block">
+                  <i class="small material-icons">grade</i>
+                  <i class="small material-icons">grade</i>
+                  <i class="small material-icons">grade</i>
+            </div>
+              </span>
+                <p>What can i say baout these shoes except for the fact that they are the sole reason i am able to play basketball, if you buy these shoes you WILL be able to dunk, you feel me?</p>
+              </div>
+              <div class="card-action">
+                <a href="#"><i class="small material-icons">thumb_up</i></a>
+                <a href="#"><i class="small material-icons">thumb_down</i></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="card grey darken-1 valign center-block z-depth-5">
+              <div class="card-content white-text">
+                <span class="card-title">
+                  Lebron J. from Cleveland, OH
+                <div class="valign right-block">
+                  <i class="small material-icons">grade</i>
+                  <i class="small material-icons">grade</i>
+                  <i class="small material-icons">grade</i>
+            </div>
+              </span>
+                <p>What can I say about these shoes except for the fact that they are the sole reason I am able to play basketball, if you buy these shoes you WILL be able to dunk, you feel me?</p>
+              </div>
+              <div class="card-action">
+                <a href="#"><i class="small material-icons">thumb_up</i></a>
+                <a href="#"><i class="small material-icons">thumb_down</i></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col s6 valign right-block">
+      <div class="caption center-align">
+        <h5>Availability</h5>
+      </div>
+      <div id="avail-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Size</th>
+              <th>Inventory</th>
+              <th>Price</th>
+              <th>Fits you?</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js'></script>
+<script>
+// Hard coding a few things, Boo!
+var id_map = {"1":"Nike%20Vans?ZUMO-API-VERSION=2.0.0",
+              "2":"Chef%20Shoe?ZUMO-API-VERSION=2.0.0",
+              "3":"Adidas%20Messi?ZUMO-API-VERSION=2.0.0"};
+var shoe_image_map = {"1":"http://kicksdeals.com/wp-content/uploads/2014/02/nike-sb-janoski-low-cool-grey-2.jpg",
+                      "2":"https://si.wsj.net/public/resources/images/BN-OK842_CURRYJ_GR_20160610135233.jpg",
+                      "3":"http://www.prodirectsoccer.com/productimages/V3_1_Main/94549.jpg"
+                     };
+var action_image_map = [{"1":"http://sneakernews.com/wp-content/uploads/2015/07/nike-zoom-so-fast-ad.jpg",
+                        "2":"http://d.christianpost.com/full/60235/img.jpg",
+                        "3":"https://i.ytimg.com/vi/x5UfNmZ4-Pg/maxresdefault.jpg"
+                        },
+                        {"1":"http://mms.businesswire.com/bwapps/mediaserver/ViewMedia?mgid=312638&vid=5",
+                        "2":"http://www.theathletesfoot.com.au/blog/wp-content/uploads/2014/08/Nike1.jpg",
+                        "3":"https://i.ytimg.com/vi/2s1UeFbzuYI/maxresdefault.jpg"
+                        },
+                        {"1":"http://i2.cdn.turner.com/money/dam/assets/151207164152-lebron-nike-780x439.jpg",
+                        "2":"http://i2.cdn.turner.com/money/dam/assets/150213112428-curry-one-sneakers-780x439.jpg",
+                        "3":"https://i.ytimg.com/vi/Dp7d_dWd4OI/maxresdefault.jpg"
+                        }];
+
+var api_root = "http://lahack2017.azurewebsites.net/tables/Todoitem/";
+var tcp_server = "tcp://10.101.37.135:5006";
+
+$(document).ready(function(){
+      // Load the slider first
+      $('.slider').slider();
+      $('.modal').modal();
+      //Get data from api
+      $.ajax({
+          type: "GET",
+          url: api_root + id_map[shoe_id.charAt(2)],
+          dataType: "json",
+          success: function(result) {
+            // Change all of the content
+            // Name of Shoe
+            $("#shoe-name").html(result["name"]);
+            $("#shoe-details").html(result["name"] + " In Action");
+
+            //Shoe image
+            $("#shoe-photo").attr("src", shoe_image_map[shoe_id.charAt(2)]);
+
+            //In action photos
+            for(var i = 0; i < 3; i++)
+              $('#action-slides').append('<li><img src="' + action_image_map[i][shoe_id.charAt(2)] + '"></li>')
+              $('#action-slider').slider();
+
+
+            //Available sizes (size-count)
+            var sizesArr = result["sizes"].split(" ");
+            for(var i = 0; i < sizesArr.length; i++)
+            {
+              var spec_size = sizesArr[i].split('-');
+              $("tbody").append("<tr><td>US " + spec_size[0] + "</td><td>" + spec_size[1] + "</td><td>$99.99</td><td>Yes</td></tr>");
+            }
+          },
+          error: function() {
+            console.log("Error in api call");
+          }
+      });
+
+      // Poll for sensor change
+      setInterval(function() {
+      $.ajax({
+          type: "GET",
+          url: "http://127.0.0.1:5000/",
+          success: function(result) {
+              var res = $(result).filter('title').text();
+              var currRes = $("title").text();
+              if(res != currRes)
+              {
+                console.log("Changing view");
+                document.open();
+                document.write(result);
+                document.close();
+              }
+              else
+              {
+                console.log("Same input, no change");
+              }
+          },
+          error: function() {
+            console.log("Error in AJAX refresh");
+          }
+      });
+  }, 5000);
+});
+
+$('#measure-btn').click(function(event) {
+   event.preventDefault();
+   $.ajax("http://127.0.0.1:5000/measure", {
+      method: "GET",
+      success: function(data) {
+         $('#user-size').html("Measured size: " + data.substring(2));
+      },
+     error: function() {
+       console.log("Error in obtaining measurment");
+     }
+   });
+});
+</script>
+</body></html>
